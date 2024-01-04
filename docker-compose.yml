@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+
+  database:
+    image: postgres:16.1-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: todos
+      TZ: Asia/Tokyo
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:
