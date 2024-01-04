@@ -1,4 +1,5 @@
 use anyhow::Context;
+use async_trait::async_trait;
 use std::sync::{Arc, RwLock, RwLockReadGuard, RwLockWriteGuard};
 use todos_domain::{
     model::todo::{CreateTodo, Todo, TodoDatas, UpdateTodo},
@@ -26,8 +27,9 @@ impl TodoRepositoryForMemory {
     }
 }
 
+#[async_trait]
 impl TodoRepository for TodoRepositoryForMemory {
-    fn create(&self, payload: CreateTodo) -> Todo {
+    async fn create(&self, payload: CreateTodo) -> Todo {
         let mut store = self.write_store_ref();
         let id = (store.len() + 1) as i32;
         let todo = Todo::new(id, payload.text.clone());
@@ -35,17 +37,17 @@ impl TodoRepository for TodoRepositoryForMemory {
         todo
     }
 
-    fn find(&self, id: i32) -> Option<Todo> {
+    async fn find(&self, id: i32) -> Option<Todo> {
         let store = self.read_store_ref();
         store.get(&id).map(|todo| todo.clone())
     }
 
-    fn all(&self) -> Vec<Todo> {
+    async fn all(&self) -> Vec<Todo> {
         let store = self.read_store_ref();
         Vec::from_iter(store.values().map(|todo| todo.clone()))
     }
 
-    fn update(&self, id: i32, payload: UpdateTodo) -> anyhow::Result<Todo> {
+    async fn update(&self, id: i32, payload: UpdateTodo) -> anyhow::Result<Todo> {
         let mut store = self.write_store_ref();
         let todo = store.get(&id).context(RepositoryError::NotFound(id))?;
         let text = payload.text.unwrap_or(todo.text.clone());
@@ -59,7 +61,7 @@ impl TodoRepository for TodoRepositoryForMemory {
         Ok(todo)
     }
 
-    fn delete(&self, id: i32) -> anyhow::Result<()> {
+    async fn delete(&self, id: i32) -> anyhow::Result<()> {
         let mut store = self.write_store_ref();
         store.remove(&id).ok_or(RepositoryError::NotFound(id))?;
         Ok(())

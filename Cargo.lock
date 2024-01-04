@@ -858,6 +858,7 @@ name = "todos-adapter"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "serde",
  "thiserror",
  "todos-domain",
@@ -877,6 +878,7 @@ dependencies = [
  "serde_json",
  "thiserror",
  "todos-adapter",
+ "todos-domain",
  "todos-service",
  "tokio",
  "tower",
@@ -890,6 +892,7 @@ name = "todos-domain"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "serde",
  "thiserror",
  "validator",
@@ -899,7 +902,9 @@ dependencies = [
 name = "todos-service"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "todos-adapter",
+ "todos-domain",
 ]
 
 [[package]]

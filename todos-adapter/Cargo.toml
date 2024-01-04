@@ -11,3 +11,4 @@ anyhow = "1.0.78"
 serde = { version = "1.0.193", features = ["derive"] }
 thiserror = "1.0.53"
 validator = { version = "0.16.1", features = ["derive"] }
+async-trait = "0.1.77"
