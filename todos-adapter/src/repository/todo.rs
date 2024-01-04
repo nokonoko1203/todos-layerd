@@ -1,7 +1,7 @@
 use anyhow::Context;
 use async_trait::async_trait;
 use std::sync::{Arc, RwLock, RwLockReadGuard, RwLockWriteGuard};
-use todos_infra::{
+use todos_domain::{
     model::todo::{CreateTodo, Todo, TodoDatas, UpdateTodo},
     repository::todo::{RepositoryError, TodoRepository},
 };

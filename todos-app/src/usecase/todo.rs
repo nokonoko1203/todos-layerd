@@ -1,7 +1,7 @@
 use anyhow;
 use std::sync::Arc;
 
-use todos_infra::{
+use todos_domain::{
     model::todo::{CreateTodo, Todo, UpdateTodo},
     repository::todo::TodoRepository,
 };

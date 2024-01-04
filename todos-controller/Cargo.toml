@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 todos-app = { path = "../todos-app" }
 todos-adapter = { path = "../todos-adapter" }
-todos-infra = { path = "../todos-infra" }
+todos-domain = { path = "../todos-domain" }
 anyhow = "1.0.78"
 axum = { version = "0.7.3", features = ["macros"] }
 axum-macros = "0.4.0"

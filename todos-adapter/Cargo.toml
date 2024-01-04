@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-todos-infra = { path = "../todos-infra" }
+todos-domain = { path = "../todos-domain" }
 anyhow = "1.0.78"
 serde = { version = "1.0.193", features = ["derive"] }
 thiserror = "1.0.53"
