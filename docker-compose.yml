@@ -18,5 +18,15 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: always
 
+  dynamodb:
+    image: amazon/dynamodb-local:2.2.0
+    container_name: dynamodb_server
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
+    volumes:
+      - dynamodb_data:/data
+    ports:
+      - 8000:8000
+
 volumes:
   pgdata:
+  dynamodb_data:
