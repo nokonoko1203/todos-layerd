@@ -4,7 +4,7 @@ use thiserror::Error;
 use crate::model::todo::{CreateTodo, Todo, UpdateTodo};
 
 #[derive(Debug, Error)]
-enum RepositoryError {
+pub enum RepositoryError {
     #[error("NotFound, id is {0}")]
     NotFound(i32),
 }

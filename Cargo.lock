@@ -860,6 +860,7 @@ dependencies = [
  "anyhow",
  "serde",
  "thiserror",
+ "todos-domain",
  "validator",
 ]
 
