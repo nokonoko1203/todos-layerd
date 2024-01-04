@@ -4,29 +4,3 @@ services:
       context: .
     ports:
       - 3000:3000
-
-  database:
-    image: postgres:16.1-alpine
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: todos
-      TZ: Asia/Tokyo
-    ports:
-      - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    restart: always
-
-  dynamodb:
-    image: amazon/dynamodb-local:2.2.0
-    container_name: dynamodb_server
-    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
-    volumes:
-      - dynamodb_data:/data
-    ports:
-      - 8000:8000
-
-volumes:
-  pgdata:
-  dynamodb_data:
