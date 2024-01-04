@@ -1,5 +1,5 @@
 [package]
-name = "todos-adapter"
+name = "todos-domain"
 version = "0.1.0"
 edition = "2021"
 
