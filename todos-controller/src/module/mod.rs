@@ -1,6 +1,7 @@
 use todos_adapter::repository::health::HealthCheckRepository;
 use todos_service::usecase::health::HealthCheckUseCase;
 
+// module is a collection of use cases
 pub struct Modules {
     health_check_use_case: HealthCheckUseCase,
 }

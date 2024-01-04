@@ -3,6 +3,7 @@ use std::{env, sync::Arc};
 
 use crate::{handler::health::health_check, module::Modules};
 
+// All the setup code is in this file
 pub async fn create_app(modules: Arc<Modules>) {
     let hc_router = Router::new().route("/", get(health_check));
 
