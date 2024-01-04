@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use todos_adapter::repository::{health::HealthCheckRepository, todo::TodoRepositoryForMemory};
-use todos_service::usecase::{health::HealthCheckUseCase, todo::TodoUseCase};
+use todos_app::usecase::{health::HealthCheckUseCase, todo::TodoUseCase};
 
 // module is a collection of use cases
 pub struct Modules {

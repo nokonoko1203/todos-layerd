@@ -1,5 +1,5 @@
 [package]
-name = "todos-service"
+name = "todos-app"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.79"
 todos-adapter = { path = "../todos-adapter" }
-todos-domain = { path = "../todos-domain" }
+todos-infra = { path = "../todos-infra" }

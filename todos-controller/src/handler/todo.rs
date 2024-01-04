@@ -1,4 +1,4 @@
-use todos_domain::model::todo::{CreateTodo, UpdateTodo};
+use todos_infra::model::todo::{CreateTodo, UpdateTodo};
 
 use axum::{
     async_trait,

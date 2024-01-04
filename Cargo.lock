@@ -861,8 +861,17 @@ dependencies = [
  "async-trait",
  "serde",
  "thiserror",
- "todos-domain",
+ "todos-infra",
  "validator",
+]
+
+[[package]]
+name = "todos-app"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "todos-adapter",
+ "todos-infra",
 ]
 
 [[package]]
@@ -878,8 +887,8 @@ dependencies = [
  "serde_json",
  "thiserror",
  "todos-adapter",
- "todos-domain",
- "todos-service",
+ "todos-app",
+ "todos-infra",
  "tokio",
  "tower",
  "tracing",
@@ -888,7 +897,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "todos-domain"
+name = "todos-infra"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -896,15 +905,6 @@ dependencies = [
  "serde",
  "thiserror",
  "validator",
-]
-
-[[package]]
-name = "todos-service"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "todos-adapter",
- "todos-domain",
 ]
 
 [[package]]
