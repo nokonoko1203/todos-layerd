@@ -14,7 +14,7 @@ pub async fn create_app(modules: Arc<Modules>) {
         );
 
     let app = Router::new()
-        .nest("/hc", hc_router)
+        .nest("/", hc_router)
         .nest("/todo", todo_router)
         .layer(Extension(modules));
 
@@ -23,8 +23,8 @@ pub async fn create_app(modules: Arc<Modules>) {
     tracing_subscriber::fmt::init();
 
     tracing::debug!("Starting server on");
-    tracing::debug!("http://localhost:3000");
+    tracing::debug!("http://localhost:8080");
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }

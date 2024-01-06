@@ -9,6 +9,6 @@ RUN strip /work/target/release/todos-controller -o /todos-controller
 FROM gcr.io/distroless/cc
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.1 /lambda-adapter /opt/extensions/lambda-adapter
 COPY --from=builder /todos-controller /
-EXPOSE 3000
+EXPOSE 8080
 
 CMD [ "/todos-controller" ]
