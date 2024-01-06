@@ -5,5 +5,4 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.79"
-todos-adapter = { path = "../todos-adapter" }
 todos-domain = { path = "../todos-domain" }
